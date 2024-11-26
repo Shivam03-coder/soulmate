@@ -1,0 +1,3 @@
+primarycolor : #A076F9
+seconadrycolor : #865DFF
+tertiorycolor : #E384FF
