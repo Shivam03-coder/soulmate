@@ -11,7 +11,6 @@ import {
 import { hp, wp } from "@/helpers/common";
 
 interface InputProps extends TextInputProps {
-  label: string;
   ContainerStyle?: StyleProp<ViewStyle>;
   LabelStyle?: StyleProp<TextStyle>;
   TextInputStyle?: StyleProp<TextStyle>;
@@ -19,8 +18,7 @@ interface InputProps extends TextInputProps {
 }
 
 const Inputbox = forwardRef<TextInput, InputProps>((props, ref) => {
-  const { label, ContainerStyle, TextInputStyle, icon, ...TextInputProps } =
-    props;
+  const { ContainerStyle, TextInputStyle, icon, ...TextInputProps } = props;
 
   return (
     <View style={[styles.container, ContainerStyle]}>

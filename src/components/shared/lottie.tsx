@@ -5,8 +5,8 @@ import { StyleProp, StyleSheet, ViewStyle } from "react-native";
 
 const Lottie = ({
   src,
-  heightp = 40,
-  widthp = 90,
+  heightp,
+  widthp,
   Lottiestyle,
 }: {
   src: any;
@@ -19,7 +19,7 @@ const Lottie = ({
     <LottieView
       autoPlay
       ref={animation}
-      style={[Lottiestyle, style.Lottiestyle]}
+      style={[style.Lottiestyle, Lottiestyle]}
       source={src}
       loop
     />
@@ -31,6 +31,6 @@ export default Lottie;
 const style = StyleSheet.create({
   Lottiestyle: {
     width: wp(90),
-    height: hp(40),
+    height: hp(42),
   },
 });

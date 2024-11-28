@@ -48,7 +48,6 @@ const LoginScreen = () => {
           <>
             <View style={Screen.form}>
               <Inputbox
-                label="Email"
                 value={values.email}
                 icon={<AntDesign name="adduser" size={30} color="black" />}
                 placeholder="Enter your email"
@@ -57,7 +56,6 @@ const LoginScreen = () => {
               />
               <View style={{ gap: hp(1) }}>
                 <Inputbox
-                  label="Password"
                   value={values.password}
                   onChangeText={handleChange("password")}
                   onBlur={handleBlur("password")}
@@ -76,7 +74,7 @@ const LoginScreen = () => {
               <Button
                 loading={IsLoading}
                 onPress={handleSubmit}
-                title="Submit"
+                title="LOG-IN"
               />
               <View
                 style={{
