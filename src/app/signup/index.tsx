@@ -5,14 +5,13 @@ import { StatusBar } from "expo-status-bar";
 import BackButton from "@/components/shared/backbtn";
 import LoginScreen from "@/screens/login.screen";
 
-const LoginPage = () => {
+const SignUpPage = () => {
   return (
     <ScreenWrapper>
       <StatusBar style="dark" />
-      <BackButton route="/welcome" />
-      <LoginScreen />
+      <BackButton route="/login" />
     </ScreenWrapper>
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

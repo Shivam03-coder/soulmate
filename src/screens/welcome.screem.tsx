@@ -1,13 +1,11 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import React from "react";
-import ScreenWrapper from "@/components/shared/screenwrapper";
 import Lottie from "@/components/shared/lottie";
-import { StatusBar } from "expo-status-bar";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import Button from "@/components/ui/Button";
+import Button from "@/components/ui/button";
 import { Styles, Texts } from "@/stylesheet";
 import { hp, wp } from "@/helpers/common";
-import { useRouter } from "expo-router";
+import { RelativePathString, useRouter } from "expo-router";
 
 const WelcomeScreen = () => {
   const Router = useRouter();
@@ -15,13 +13,10 @@ const WelcomeScreen = () => {
   return (
     <View style={Styles.conatiner}>
       {/* // ========== LOTTIE ============= */}
-
       <View>
         <Lottie src={require("assets/lottie/couple.json")} />
       </View>
-
       {/* // ==========  APP-NAME ============= */}
-
       <View>
         <View style={Styles.flexhorizontal}>
           <Text style={Texts.h1}>SOULMATE</Text>
@@ -32,9 +27,7 @@ const WelcomeScreen = () => {
           AI.
         </Text>
       </View>
-
       {/* // ========== LOGIN-BUTTON ============= */}
-
       <View style={screenstyle.footer}>
         <Button
           buttonStyle={screenstyle.btnstyle}
@@ -43,7 +36,7 @@ const WelcomeScreen = () => {
         />
         <View style={screenstyle.BottomTextContainer}>
           <Text style={Texts.h5}>Alreday have an account !</Text>
-          <Pressable onPress={() => Router.push("/login")}>
+          <Pressable onPress={() => Router.push("/login" as RelativePathString)}>
             <Text style={[Texts.h5, screenstyle.Logintext]}>Login</Text>
           </Pressable>
         </View>

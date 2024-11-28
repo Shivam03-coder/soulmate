@@ -23,7 +23,7 @@ const Button: React.FC<ButtonsProps> = ({
   textStyle,
   title,
   onPress = () => {},
-  loading = false,
+  loading,
 }) => {
   return (
     <TouchableOpacity
@@ -32,7 +32,7 @@ const Button: React.FC<ButtonsProps> = ({
       disabled={loading}
     >
       {loading ? (
-        <ActivityIndicator size="small" color="#A076F9" />
+        <ActivityIndicator size="large" color="black" />
       ) : (
         <Text style={[styles.text, textStyle]}>{title}</Text>
       )}
@@ -49,9 +49,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   text: {
-    color: "#fff",
+    color: "#000000",
     fontSize: 26,
-    fontWeight: "bold",
+    fontWeight: "600",
   },
 });
 

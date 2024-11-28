@@ -14,6 +14,7 @@ export const Styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     gap: 10,
+    fontFamily: "Inter_400Regular",
   },
 });
 
@@ -21,12 +22,10 @@ export const Texts = StyleSheet.create({
   h1: {
     fontSize: 40,
     fontWeight: "bold",
-    marginVertical: 10,
   },
   h2: {
     fontSize: 28,
     fontWeight: "bold",
-    marginVertical: 8,
   },
   h3: {
     fontSize: 24,
