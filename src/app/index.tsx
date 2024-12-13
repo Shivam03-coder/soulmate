@@ -10,8 +10,8 @@ const Indexpage = () => {
     <ScreenWrapper bg="#f2f8ff">
       <View style={{ flex: 1, justifyContent: "center" }}>
         <Button
-          onPress={() => Router.push("/welcome" as RelativePathString)}
-          title="GO"
+          onPress={() => Router.push("/signup" as RelativePathString)}
+          title="START"
         />
       </View>
     </ScreenWrapper>

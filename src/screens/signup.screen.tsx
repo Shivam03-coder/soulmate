@@ -8,6 +8,7 @@ import { StyleSheet, View } from "react-native";
 import { Formik } from "formik";
 import Toast from "react-native-toast-message";
 import { useRouter } from "expo-router";
+import { supabase } from "@/lib/supabase";
 
 const SignUpScreen = () => {
   const [IsLoading, setIsLoading] = useState<boolean>(false);
@@ -30,30 +31,59 @@ const SignUpScreen = () => {
           email: "",
           password: "",
         }}
-        onSubmit={(values, action) => {
-          console.log(values.email);
-          action.resetForm();
-          Toast.show({
-            type: "success",
-            text1: "🎉 Signup Successful! 🎉",
-            position: "bottom",
-            text1Style: {
-              fontSize: 17,
+        onSubmit={async ({ email, password, name }, action) => {
+          setIsLoading(true);
+
+          const { data, error } = await supabase.auth.signUp({
+            email,
+            password,
+            options: {
+              data: {
+                name,
+              },
             },
-            visibilityTime: 3000,
-            swipeable: true,
           });
+          console.log(data);
+
+          if (data) {
+            setIsLoading(false);
+            action.resetForm();
+            Toast.show({
+              type: "success",
+              text1: "🎉 Signup Successful! 🎉",
+              position: "bottom",
+              text1Style: {
+                fontSize: 17,
+              },
+              visibilityTime: 3000,
+              swipeable: true,
+            });
+          }
+
+          if (error) {
+            action.resetForm();
+            Toast.show({
+              type: "error",
+              text1: "❌ Signup Unsuccessful! ❌",
+              position: "bottom",
+              text1Style: {
+                fontSize: 17,
+              },
+              visibilityTime: 3000,
+              swipeable: true,
+            });
+          }
         }}
       >
         {({ handleChange, handleBlur, handleSubmit, values }) => (
           <>
             <View style={Screen.form}>
               <Inputbox
-                value={values.email}
+                value={values.name}
                 icon={<AntDesign name="user" size={30} color="black" />}
                 placeholder="Enter your name"
-                onChangeText={handleChange("email")}
-                onBlur={handleBlur("email")}
+                onChangeText={handleChange("name")}
+                onBlur={handleBlur("name")}
               />
               <Inputbox
                 value={values.email}
