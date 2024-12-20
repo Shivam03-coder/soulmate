@@ -14,6 +14,8 @@ const RootLayout = () => {
     Inter_600SemiBold,
   });
 
+  
+
   useEffect(() => {
     LogBox.ignoreAllLogs();
 

@@ -1,4 +1,0 @@
-export const EXPO_PUBLIC_SUPABASE_URL =
-  "https://nutzzjfwnecylxwhbmkr.supabase.co";
-export const EXPO_PUBLIC_SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im51dHp6amZ3bmVjeWx4d2hibWtyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzI4MTU3MzEsImV4cCI6MjA0ODM5MTczMX0.bvUo3Q3abY6Ti_PeHbOWnIKUlQYk4AUP1d-acxX9X4E";

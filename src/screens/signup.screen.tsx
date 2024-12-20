@@ -8,15 +8,14 @@ import { StyleSheet, View } from "react-native";
 import { Formik } from "formik";
 import Toast from "react-native-toast-message";
 import { useRouter } from "expo-router";
-import { supabase } from "@/lib/supabase";
 
 const SignUpScreen = () => {
-  const [IsLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const Router = useRouter();
 
   return (
-    <View style={Screen.conatiner}>
+    <View style={styles.container}>
       <Toast />
       <View>
         <Lottie
@@ -32,52 +31,12 @@ const SignUpScreen = () => {
           password: "",
         }}
         onSubmit={async ({ email, password, name }, action) => {
-          setIsLoading(true);
-
-          const { data, error } = await supabase.auth.signUp({
-            email,
-            password,
-            options: {
-              data: {
-                name,
-              },
-            },
-          });
-          console.log(data);
-
-          if (data) {
-            setIsLoading(false);
-            action.resetForm();
-            Toast.show({
-              type: "success",
-              text1: "🎉 Signup Successful! 🎉",
-              position: "bottom",
-              text1Style: {
-                fontSize: 17,
-              },
-              visibilityTime: 3000,
-              swipeable: true,
-            });
-          }
-
-          if (error) {
-            action.resetForm();
-            Toast.show({
-              type: "error",
-              text1: "❌ Signup Unsuccessful! ❌",
-              position: "bottom",
-              text1Style: {
-                fontSize: 17,
-              },
-              visibilityTime: 3000,
-              swipeable: true,
-            });
-          }
+          console.log(email, password);
         }}
       >
         {({ handleChange, handleBlur, handleSubmit, values }) => (
           <>
-            <View style={Screen.form}>
+            <View style={styles.form}>
               <Inputbox
                 value={values.name}
                 icon={<AntDesign name="user" size={30} color="black" />}
@@ -109,7 +68,7 @@ const SignUpScreen = () => {
                 />
               </View>
               <Button
-                loading={IsLoading}
+                loading={isLoading}
                 onPress={handleSubmit}
                 title="SIGN-UP"
               />
@@ -123,14 +82,12 @@ const SignUpScreen = () => {
 
 export default SignUpScreen;
 
-const Screen = StyleSheet.create({
-  conatiner: {
+const styles = StyleSheet.create({
+  container: {
     flex: 1,
     paddingTop: hp(1),
     justifyContent: "space-evenly",
-  },
-  greetingtext: {
-    letterSpacing: 1,
+    paddingHorizontal: wp(5),
   },
   form: {
     gap: hp(3),
